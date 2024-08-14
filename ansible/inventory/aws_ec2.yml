@@ -1,0 +1,13 @@
+plugin: aws_ec2
+aws_profile: cacetinho-prod
+regions:
+  - us-east-1
+
+# Esse parametro volta o IP publico da maquina, precisa adicionar o IP privado uma vez que essas maquinas
+# Serao enxergadas apenas de dentro da VPN
+hostnames:
+  - ip-address
+
+groups:
+  control-plane: "'control-plane' in tags.KUBERNETES_COMPONENT"
+  worker: "'worker' in tags.KUBERNETES_COMPONENT"
